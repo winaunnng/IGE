@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="confirmation_date" position="before">
+                   <field name="date_order"/>
+                </field>
+                 <field name="confirmation_date" position="attributes">
+                     <attribute name='attrs'>{'invisible': [('state', 'in', ['sent', 'cancel'])]}</attribute>
+                 </field>
+         </field>
+        </record>
+    </data>
+</openerp>
+
+
+

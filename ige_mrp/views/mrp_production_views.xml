@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="mrp_production_form_view" model="ir.ui.view">
+            <field name="name">mrp.production.form</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                  <field name="date_planned_start" position="before">
+                      <field name="date_start" attrs="{'readonly': [('state', 'in', ('done', 'cancel','progress'))]}"/>
+                      <field name="date_finished"  attrs="{'invisible': [('state', 'in', ('confirmed', 'planned'))],'readonly': [('state', 'in', ('done', 'cancel'))]}" />
+                  </field>
+            </field>
+        </record>
+     </data>
+</odoo>
